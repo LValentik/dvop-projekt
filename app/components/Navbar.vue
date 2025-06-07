@@ -1,7 +1,7 @@
 <template>
   <nav class="bg-white shadow mb-6">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <span class="font-bold text-lg">My NuxtUI App</span>
+      <span class="font-bold text-lg text-gray-950">CreativeHub</span>
       <div class="space-x-4">
         <NuxtLink to="/" class="text-gray-700 hover:text-blue-600">Home</NuxtLink>
         <NuxtLink to="/events" class="text-gray-700 hover:text-blue-600">Events</NuxtLink>

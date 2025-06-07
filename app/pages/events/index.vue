@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import Navbar from '~/components/Navbar.vue'
 const events = ref([])
 const viteStrapiUrl = import.meta.env.VITE_STRAPI_URL
 
@@ -22,19 +23,21 @@ function viewDetails(slug) {
 onMounted(fetchEvents)
 </script>
 <template>
-    <div class="container mx-auto p-4">
-        <h1 class="text-2xl font-bold mb-4">Upcoming Events</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <EventCard
-                v-if="events.length"
-                v-for="event in events"
-                :key="event.slug"
-                :event="event"
-                @details="viewDetails(event.slug)"
-            />
-            <div v-else class="col-span-full text-center">
-                <p class="text-gray-500">No events available at the moment.</p>
-            </div>
-        </div>
+  <Navbar />
+  <div class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Upcoming Events</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <template v-if="events.length">
+        <EventCard
+          v-for="event in events"
+          :key="event.id"
+          :event="event"
+          @details="viewDetails(event.slug)"
+        />
+      </template>
+      <div v-else class="col-span-full text-center">
+        <p class="text-gray-500">No events available at the moment.</p>
+      </div>
     </div>
+  </div>
 </template>
