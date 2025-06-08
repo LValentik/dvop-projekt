@@ -4,7 +4,7 @@
             <img
                 :src="thumbnailUrl"
                 alt="Event Image"
-                class="w-full h-1/3 object-cover rounded-md"
+                class="w-full object-cover rounded-md"
             >
         </template>
         <h1 class="text-xl mb-2">{{ event.title }}</h1>
